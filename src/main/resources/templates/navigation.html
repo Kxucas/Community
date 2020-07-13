@@ -10,9 +10,9 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">码匠社区</span>
+                    <span class="sr-only">开轩社区</span>
                 </button>
-                <a class="navbar-brand" href="/">码匠社区</a>
+                <a class="navbar-brand" href="/">开轩社区</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -41,7 +41,7 @@
                     <li th:if="${session.user != null}">
                         <a href="/publish">提问</a>
                     </li>
-                    <li><a href="/profile/replies">通知 <span class="badge" th:text="${session.unreadCount}"></span></a>
+                    <li><a th:href="@{/user/login}">注册 <span class="badge" th:text="${session.unreadCount}"></span></a>
                     </li>
                     <li class="dropdown" th:if="${session.user != null}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -54,9 +54,7 @@
                             <li><a href="/logout">退出登录</a></li>
                         </ul>
                     </li>
-                    <li th:if="${session.user == null}">
-                        <a th:href="@{https://github.com/login/oauth/authorize(client_id='2859958f9f059979ed3a',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">登录</a>
-                    </li>
+                    <li><a th:href="@{/user/userlogin}">登陆 <span class="badge" th:text="${session.unreadCount}"></span></a>
 
                 </ul>
             </div>
